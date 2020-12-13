@@ -1,0 +1,30 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Create Jira
+  steps:
+  - intent: create_jira
+  - action: create_jira_form
+  - active_loop: create_jira_form
+
+- rule: Submit Create Jira
+  condition:
+  - active_loop: create_jira_form
+  steps:
+  - action: create_jira_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit
+  - action: utter_slots_values
