@@ -8,8 +8,23 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
-  - hello_world
+  - create_jira
+  - out_of_scope
+  - tell_jira_type
+  - get_proj
   - jira_status
+  - get_summary
+  - get_desc
+  - get_est
+  - jira_log_hours
+
+entities:
+  - proj_id
+  - jira_type
+  - app
+  - status
+  - hrs
+  - proj
 
 responses:
   utter_greet:
@@ -31,12 +46,62 @@ responses:
   utter_iamabot:
   - text: "I am a bot, here for your help !"
 
-#  utter_hello_world:
-#  - text: "This is Hello World response!"
+  utter_ask_proj_id:
+  - text: "Please type project id."
+
+  utter_ask_summary:
+  - text: "Please type summary of new ticket."
+
+  utter_ask_estimate:
+  - text: "Please give an estimate time to your ticket."
+
+  utter_ask_description:
+  - text: "Please provide description of your ticket."
+
+  utter_ask_jira_type:
+  - text: "Please provide type of your jira."
+    buttons:
+      - title: "Story"
+        payload: '/create_jira{{"jira_type": "Story"}}'
+      - title: "Task"
+        payload: '/create_jira{{"jira_type": "Task"}}'
+      - title: "Bug"
+        payload: '/create_jira{{"jira_type": "Bug"}}'
+
+  utter_slots_values:
+  - text: "You've submitted the following answers:\n
+            - Project: {proj_id}\n
+            - Summary: {summary}\n
+            - Estimate: {estimate}\n
+            - Description: {description}\n
+            - Jira Type: {jira_type}"
+
+  utter_submit:
+  - text: "Jira Ticket Successfully Created !"
+
+slots:
+  proj_id:
+    type: text
+  summary:
+    type: text
+  estimate:
+    type: text
+  description:
+    type: text
+  jira_type:
+    type: categorical
+    values:
+      - Story
+      - Task
+      - Bug
 
 actions:
   - action_hello_world
   - action_jira_status
+  - action_jira_log_hours
+
+forms:
+  - create_jira_form
 
 session_config:
   session_expiration_time: 60   #value in minutes
