@@ -39,6 +39,18 @@ nlu:
     - of course
     - that sounds good
     - correct
+    - sure
+    - ok
+    - why not
+    - ok great
+    - yes I did
+    - yeah, great
+    - pretty good
+    - fine
+    - You bet
+    - I sure did
+    - more or less
+
 
 - intent: deny
   examples: |
@@ -49,6 +61,21 @@ nlu:
     - don't like that
     - no way
     - not really
+    - none
+    - absolutely not
+    - no thanks
+    - didn't do any
+    - no I didn't
+    - could have been better
+    - not great
+    - nope
+
+- intent: thankyou
+  examples: |
+    - okay great thanks
+    - thank you
+    - sure thanks
+    - thanks bye
 
 - intent: mood_great
   examples: |
@@ -91,6 +118,64 @@ nlu:
     - am I talking to a bot?
     - am I talking to a human?
 
+- intent: create_jira
+  examples: |
+    - please create a jira
+    - create jira
+    - jira create
+    - can you create a jira
+    - can you create a jira for me
+    - create my jira
+    - create jira ticket
+    - jira ticket create
+    - ticket jira create
+    - create my jira ticket
+    - create a jira ticket
+    - create a jira
+    - create some jira ticket
+    - create some jira
+
+- intent: tell_jira_type
+  examples: |
+    - [Story](jira_type)
+    - [Task](jira_type)
+    - [Bug](jira_type)
+    - [story](jira_type)
+    - [bug](jira_type)
+    - [task](jira_type)
+
+- intent: get_proj
+  examples: |
+    - [ABC](proj_id)
+    - [DEF](proj_id)
+    - Project [ABC](proj_id)
+    - project [ABC](proj_id)
+    - proj [ABC](proj_id)
+    - project is [ABC](proj_id)
+    - Project is [ABC](proj_id)
+    - [ABC](proj_id) project
+    - [DEF](proj_id) project
+
+- intent: out_of_scope
+  examples: |
+    - that's not what I want to do
+    - wait stop
+    - you're no help
+    - this is no help at all
+    - how old are you
+    - I want to order a pizza
+    - tell me the weather
+    - this isn't working
+    - I already told you that
+    - don't like that
+    - I don't want to tell you that
+    - none of your business
+    - that's not right
+    - stop asking
+    - nevermind
+    - I want to do something else
+    - I changed my mind
+
 - intent: jira_status
   examples: |
     - change jira [ABC](app) status to [Close](status)
@@ -103,8 +188,32 @@ nlu:
     - jira [ABC](app) status to [Resolved](status)
     - update jira [ABC](app) status to [Resolved](status)
 
-- intent: hello_world
+- intent: jira_log_hours
   examples: |
-    - world
-    - programming
-    - first program
+    - log [6](hrs) for [ABC](proj)
+    - log [6](hrs) to [ABC](proj)
+    - log [8](hrs) for [ABC](proj)
+    - log [8](hrs) to [ABC](proj)
+
+- intent: get_summary
+  examples: |
+    - sample summary bug
+    - sample description bug
+    - sample summary task
+    - sample description task
+    - sample summary story
+    - sample description Story
+
+- intent: get_desc
+  examples: |
+    - sample summary bug
+    - sample description bug
+    - sample summary task
+    - sample description task
+    - sample summary Story
+    - sample description story
+
+- intent: get_est
+  examples: |
+    - [1w](estimate)
+    - estimate [1w](estimate)
