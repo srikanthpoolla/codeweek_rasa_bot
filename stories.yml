@@ -9,17 +9,6 @@ stories:
   - intent: mood_great
   - action: utter_happy
 
-- story: hello world path
-  steps:
-  - intent: hello_world
-  - action: action_hello_world
-
-- story: jira status path
-  steps:
-  - intent: jira_status
-  - action: action_jira_status
-
-
 - story: sad path 1
   steps:
   - intent: greet
@@ -27,5 +16,22 @@ stories:
   - intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
 
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
 
+- story: jira status path
+  steps:
+  - intent: jira_status
+  - action: action_jira_status
+  - intent: jira_log_hours
+  - action: action_jira_log_hours
